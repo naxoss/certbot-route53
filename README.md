@@ -6,18 +6,11 @@ This shell script helps create [Let's Encrypt][] certificates for [AWS Route53][
 Installation and Usage
 ----------------------
 
-1. Install Certbot and the AWS CLI. You can use [Homebrew][] (`brew install awscli certbot`) or [pip][] (`pip install boto3 certbot`).
+1. Install Certbot and the AWS CLI. Follow this [guide](http://docs.aws.amazon.com/cli/latest/userguide/awscli-install-linux.html) to install latest AWS CLI on linux
 
 2. [Configure the AWS CLI][]. Your account must have permission to list and update Route53 records.
 
 3. Download the [certbot-route53.sh][] script.
-
-    ```sh
-    mkdir my-certificates
-    cd my-certificates
-    curl -sL https://git.io/vylLx -o certbot-route53.sh
-    chmod a+x certbot-route53.sh
-    ```
 
 4. Run the script with your (comma-separated) domain(s) and email address:
 
@@ -36,9 +29,8 @@ Installation and Usage
     - Let's Encrypt validates the TXT record and returns a certificate, and finally
     - AWS CLI asks Route53 to delete the TXT record.
 
-6. Find your new certificate(s) in the `letsencrypt/live` directory.
+6. Find your new certificate(s) in the `/etc/letsencrypt/live` directory.
 
-![terminal](https://cloud.githubusercontent.com/assets/4433/23584470/9306b8ac-0130-11e7-9ffc-ef7d91971620.png)
 
 [AWS Route53]: https://aws.amazon.com/route53
 [Let's Encrypt]: https://letsencrypt.org
