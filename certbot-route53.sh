@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 if [ -z $CERTBOT_DOMAIN ]; then
-  mkdir -p $PWD/letsencrypt
 
   certbot certonly \
     --non-interactive \
@@ -9,9 +8,6 @@ if [ -z $CERTBOT_DOMAIN ]; then
     --manual-auth-hook $PWD/$0 \
     --manual-cleanup-hook $PWD/$0 \
     --preferred-challenge dns \
-    --config-dir $PWD/letsencrypt \
-    --work-dir $PWD/letsencrypt \
-    --logs-dir $PWD/letsencrypt \
     $@
 
 else
@@ -42,6 +38,6 @@ else
       }]
     }"
   )
-  
+
   echo 1
 fi
